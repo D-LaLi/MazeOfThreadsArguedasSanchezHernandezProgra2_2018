@@ -1,5 +1,6 @@
 package gui;
 
+import domain.Coin;
 import domain.Fast;
 import domain.Maze;
 import domain.Smart;
@@ -14,6 +15,7 @@ public class MazePanel extends javax.swing.JPanel {
     Maze myMaze;
     Smart terrorist;
     Fast fast;
+    Coin coin;
     Timer timer;
     
     public MazePanel() {
@@ -26,6 +28,9 @@ public class MazePanel extends javax.swing.JPanel {
         
         fast = new Fast(0, 290);
         fast.start();
+        
+        coin = new Coin(6, 5);
+        coin.start();
         
         timer = new Timer(0, (ActionEvent ae) -> {
             long start;
@@ -71,6 +76,7 @@ public class MazePanel extends javax.swing.JPanel {
         }
         //dibuja la imagen redimensionada
         g.drawImage(fast.getImage(), fast.getX(), fast.getY(), this);
+        g.drawImage(coin.getImage(), (coin.getY() * rectWidth)/100, (coin.getX() * rectHeight)/100, rectWidth/3, rectHeight/2, this);
         g.drawImage(terrorist.getImage(), (terrorist.getY() * rectWidth)/100, (terrorist.getX() * rectHeight)/100, rectWidth, rectHeight, this);
     } //fin metodo paintComponent
 

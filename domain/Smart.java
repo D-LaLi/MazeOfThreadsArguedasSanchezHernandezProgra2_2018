@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 public class Smart extends Character {
 
     Maze myMaze;
-    int ejeX, ejeY;
+    int x, y;
 
     //constructor
     public Smart(int x, int y) {
@@ -34,15 +34,15 @@ public class Smart extends Character {
 
     @Override
     public void run() {
-        ejeX = super.getX() / 100;//acomoda los ejes de la imagen en terminos de la matriz
-        ejeY = super.getY() / 100;//acomoda los ejes de la imagen en terminos de la matriz
-        System.out.println("Inicio ejes " + ejeX + " - " + ejeY);
-        int i = 0;// controla la imagen que se mueve
-        super.setImage(i);
+        
+        x = super.getX() / 100;//acomoda los ejes de la imagen en terminos de la matriz
+        y = super.getY() / 100;//acomoda los ejes de la imagen en terminos de la matriz
 
         //invoca el metodo recursivo que mueva al character que solo retornara si es true
+        while(true)
         if (moveTerrorist(0)) {
             System.out.println("Llego a la meta");
+            break;
         }
 
     }
@@ -51,7 +51,7 @@ public class Smart extends Character {
     //y contiene el caso base
     //el parametro es cuando es invocado otra vez, para que no haga el movimiento contrario al hecho anteriormente
     private boolean moveTerrorist(int n) {
-        if (ejeY == myMaze.getMaze()[0].length - 1) {//caso base, cuando llego a la posicion final
+        if (y == myMaze.getMaze()[0].length - 1) {//caso base, cuando llego a la posicion final
             return true;
         }
         int random = (int) (Math.random() * 4);//numero que determina donde se va a mover primero
@@ -102,13 +102,13 @@ public class Smart extends Character {
 
     //mueve para adelante
     public boolean moveForward(int n) {
-        if (myMaze.getMaze()[ejeX][ejeY + 1] == 0 && n != 1) {//codicion para mover hacia delante
-            setY(++ejeY);
+        if (myMaze.getMaze()[x][y + 1] == 0 && n != 1) {//codicion para mover hacia delante
+            setY(++y);
             if (moveTerrorist(4)) {
                 return true;
             }
-            if (ejeY - 1 >= 0 && myMaze.getMaze()[ejeX][ejeY - 1] == 0) {
-                setY(--ejeY);
+            if (y - 1 >= 0 && myMaze.getMaze()[x][y - 1] == 0) {
+                setY(--y);
             } else if (moveTerrorist(0)) {
                 return true;
             }
@@ -118,13 +118,13 @@ public class Smart extends Character {
 
     //mueve para abajo
     public boolean moveDown(int n) {
-        if (myMaze.getMaze()[ejeX + 1][ejeY] == 0 && n != 2) {//codicion para mover hacia abajo
-            setX(++ejeX);
+        if (myMaze.getMaze()[x + 1][y] == 0 && n != 2) {//codicion para mover hacia abajo
+            setX(++x);
             if (moveTerrorist(3)) {
                 return true;
             }
-            if (myMaze.getMaze()[ejeX - 1][ejeY] == 0) {
-                setX(--ejeX);
+            if (myMaze.getMaze()[x - 1][y] == 0) {
+                setX(--x);
             } else if (moveTerrorist(0)) {
                 return true;
             }
@@ -134,13 +134,13 @@ public class Smart extends Character {
 
     //mueve para arriba
     public boolean moveUp(int n) {
-        if (myMaze.getMaze()[ejeX - 1][ejeY] == 0 && n != 3) {//codicion para mover hacia arriba
-            setX(--ejeX);
+        if (myMaze.getMaze()[x - 1][y] == 0 && n != 3) {//codicion para mover hacia arriba
+            setX(--x);
             if (moveTerrorist(2)) {
                 return true;
             }
-            if (myMaze.getMaze()[ejeX + 1][ejeY] == 0) {
-                setX(++ejeX);
+            if (myMaze.getMaze()[x + 1][y] == 0) {
+                setX(++x);
             } else if (moveTerrorist(0)) {
                 return true;
             }
@@ -150,13 +150,13 @@ public class Smart extends Character {
 
     //mueve para atras
     public boolean moveBack(int n) {
-        if (ejeY - 1 >= 0 && myMaze.getMaze()[ejeX][ejeY - 1] == 0 && n != 4) {//codicion para mover hacia atras
-            setY(--ejeY);
+        if (y - 1 >= 0 && myMaze.getMaze()[x][y - 1] == 0 && n != 4) {//codicion para mover hacia atras
+            setY(--y);
             if (moveTerrorist(1)) {
                 return true;
             }
-            if (myMaze.getMaze()[ejeX][ejeY + 1] == 0) {
-                setY(++ejeY);
+            if (myMaze.getMaze()[x][x + 1] == 0) {
+                setY(++y);
             } else if (moveTerrorist(0)) {
                 return true;
             }
