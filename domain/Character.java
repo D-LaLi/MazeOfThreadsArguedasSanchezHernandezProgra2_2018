@@ -58,6 +58,7 @@ public class Character extends Thread {
             this.image = sprite.get(position);
         }
     }
+    
 
     public void setImgNum(int imgNum) {
         this.imgNum = imgNum;
@@ -80,4 +81,11 @@ public class Character extends Thread {
         sprite.add(image);
     }
     
+    public void unDrawCharacter(){
+        this.image = null;
+    }
+    
+    public void setImageAttack(BufferedImage attack){//metod para pasarle las imagenes del ogro atacando
+        this.image = attack;
+    }
 }

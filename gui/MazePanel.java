@@ -2,6 +2,7 @@ package gui;
 
 import domain.Coin;
 import domain.Fast;
+import domain.Furious;
 import domain.Maze;
 import domain.Smart;
 import java.awt.Graphics;
@@ -13,9 +14,11 @@ import javax.swing.Timer;
 public class MazePanel extends javax.swing.JPanel {
 
     Maze myMaze;
-    Smart terrorist;
+    Smart smart;
     Fast fast;
-    Coin coin;
+    Furious furious;
+    Coin coin, coin2;
+    
     Timer timer;
     
     public MazePanel() {
@@ -23,14 +26,19 @@ public class MazePanel extends javax.swing.JPanel {
         setLocation(200, 200);
         myMaze = Maze.getInstance();
         
-        terrorist = new Smart(2, 0);//la posicion importa
-        terrorist.start();
+        smart = new Smart(2, 0);//la posicion importa
+        smart.start();
+        
+        furious = new Furious(2, 0);
+        furious.start();
         
         fast = new Fast(0, 290);
         fast.start();
         
         coin = new Coin(6, 5);
+        coin2 = new Coin(8, 2);
         coin.start();
+        coin2.start();
         
         timer = new Timer(0, (ActionEvent ae) -> {
             long start;
@@ -77,7 +85,9 @@ public class MazePanel extends javax.swing.JPanel {
         //dibuja la imagen redimensionada
         g.drawImage(fast.getImage(), fast.getX(), fast.getY(), this);
         g.drawImage(coin.getImage(), (coin.getY() * rectWidth)/100, (coin.getX() * rectHeight)/100, rectWidth/3, rectHeight/2, this);
-        g.drawImage(terrorist.getImage(), (terrorist.getY() * rectWidth)/100, (terrorist.getX() * rectHeight)/100, rectWidth, rectHeight, this);
+        g.drawImage(coin2.getImage(), (coin2.getY() * rectWidth)/100, (coin2.getX() * rectHeight)/100, rectWidth/3, rectHeight/2, this);
+        g.drawImage(smart.getImage(), (smart.getY() * rectWidth)/100, (smart.getX() * rectHeight)/100, rectWidth, rectHeight, this);
+        g.drawImage(furious.getImage(), (furious.getY() * rectWidth)/100, (furious.getX() * rectHeight)/100, rectWidth, rectHeight, this);
     } //fin metodo paintComponent
 
     @SuppressWarnings("unchecked")
