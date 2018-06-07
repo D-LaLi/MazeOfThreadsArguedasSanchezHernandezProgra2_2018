@@ -1,11 +1,9 @@
 package domain;
 
-import gui.MazePanel;
+import domain.Maze;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
 public class Furious extends Character {
@@ -27,20 +25,20 @@ public class Furious extends Character {
     //agrega las imagenes al array de characters
     public void setSprite() {
         try {
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/WALK_000.png")));
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/WALK_001.png")));
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/WALK_002.png")));
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/WALK_003.png")));
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/WALK_004.png")));
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/WALK_005.png")));
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/WALK_006.png")));
-            attackImages.add(ImageIO.read(getClass().getResourceAsStream("/Assets/ATTAK_000.png")));
-            attackImages.add(ImageIO.read(getClass().getResourceAsStream("/Assets/ATTAK_001.png")));
-            attackImages.add(ImageIO.read(getClass().getResourceAsStream("/Assets/ATTAK_002.png")));
-            attackImages.add(ImageIO.read(getClass().getResourceAsStream("/Assets/ATTAK_003.png")));
-            attackImages.add(ImageIO.read(getClass().getResourceAsStream("/Assets/ATTAK_004.png")));
-            attackImages.add(ImageIO.read(getClass().getResourceAsStream("/Assets/ATTAK_005.png")));
-            attackImages.add(ImageIO.read(getClass().getResourceAsStream("/Assets/ATTAK_006.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/walk_000.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/walk_001.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/walk_002.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/walk_003.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/walk_004.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/walk_005.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/walk_006.png")));
+            attackImages.add(ImageIO.read(getClass().getResourceAsStream("/Assets/attak_000.png")));
+            attackImages.add(ImageIO.read(getClass().getResourceAsStream("/Assets/attak_001.png")));
+            attackImages.add(ImageIO.read(getClass().getResourceAsStream("/Assets/attak_002.png")));
+            attackImages.add(ImageIO.read(getClass().getResourceAsStream("/Assets/attak_003.png")));
+            attackImages.add(ImageIO.read(getClass().getResourceAsStream("/Assets/attak_004.png")));
+            attackImages.add(ImageIO.read(getClass().getResourceAsStream("/Assets/attak_005.png")));
+            attackImages.add(ImageIO.read(getClass().getResourceAsStream("/Assets/attak_006.png")));
         } catch (IOException ex) {
             System.err.println("Error al cargar las imagenes del ogro.");
         }

@@ -1,6 +1,6 @@
 package domain;
 
-import gui.MazePanel;
+
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
@@ -224,24 +224,25 @@ public class Smart extends Character {
     //pregunta si hay una moneda en la posicion y lo hace mas rapido de ser verdadero
     public void findCoin(int auxX, int auxY, int time) {
         if (myMaze.getMaze()[auxX][y] == 4) {
-            sleepTime *= 0.2;
             myMaze.removeCoin(auxX, auxY);
+            sleepTime *= 0.5;
         }
         if (auxY - 1 >= 0 && auxY - 2 >= 0&&myMaze.getMaze()[auxX][y - 1] == 4) {
-            sleepTime *= 0.2;
+
             myMaze.removeCoin(auxX, auxY-1);
+            sleepTime *= 0.5;
         }
         if (auxX - 1 >= 0 && auxX-1 > myMaze.getMaze().length && myMaze.getMaze()[auxX - 1][auxY] == 4) {
-            sleepTime *= 0.2;
             myMaze.removeCoin(auxX - 1, auxY);
+            sleepTime *= 0.5;
         }
         if (y + 1 > myMaze.getMaze()[0].length && myMaze.getMaze()[auxX][auxY + 1] == 4) {
-            sleepTime *= 0.2;
             myMaze.removeCoin(auxX, auxY +1);
+            sleepTime *= 0.5;
         }
         if (auxX + 1 > myMaze.getMaze().length && myMaze.getMaze()[auxX + 1][auxY] == 4) {
-            sleepTime *= 0.2;
             myMaze.removeCoin(auxX + 1, auxY);
+            sleepTime *= 0.5;
         }
         if(time == 0){//lo llama nuevamente para intentar que reconosca la posicion de la moneda
             findCoin(++auxX, ++auxY, 1);

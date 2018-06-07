@@ -58,7 +58,6 @@ public class Character extends Thread {
             this.image = sprite.get(position);
         }
     }
-    
 
     public void setImgNum(int imgNum) {
         this.imgNum = imgNum;
@@ -79,7 +78,7 @@ public class Character extends Thread {
 
     public void addToArray(BufferedImage image) {
         sprite.add(image);
-    }
+    }    
     
     public void unDrawCharacter(){
         this.image = null;

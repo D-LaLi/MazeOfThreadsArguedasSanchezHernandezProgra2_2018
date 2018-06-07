@@ -1,5 +1,6 @@
 package domain;
 
+import gui.*;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
@@ -19,15 +20,16 @@ public class Coin extends Character {
     //agrega las imagenes al array de characters
     public void setSprite() {
         try {
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/Gold_1.png")));
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/Gold_2.png")));
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/Gold_3.png")));
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/Gold_4.png")));
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/Gold_5.png")));
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/Gold_6.png")));
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/Gold_7.png")));
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/Gold_8.png")));
-            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/Gold_9.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/gold_1.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/gold_2.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/gold_3.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/gold_4.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/gold_5.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/gold_6.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/gold_7.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/gold_8.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/gold_9.png")));
+            super.addToArray(ImageIO.read(getClass().getResourceAsStream("/Assets/gold_10.png")));
         } catch (IOException ex) {
             System.err.println("Error al cargar las imagenes del terror.");
         }
